@@ -1,0 +1,4 @@
+services:
+#    almni.example:
+#        class: AlmniBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

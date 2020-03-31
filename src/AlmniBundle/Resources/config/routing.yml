@@ -1,0 +1,7 @@
+almni_homepage:
+    path:     /
+    defaults: { _controller: AlmniBundle:Default:index }
+
+almni_about:
+    path:     /about
+    defaults: { _controller: AlmniBundle:Default:about }
