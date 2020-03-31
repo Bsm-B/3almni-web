@@ -8,11 +8,11 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('@Almni/Default/index.html.twig');
+        return $this->render('@Almni/Front/Default/index.html.twig');
     }
 
     public function aboutAction()
     {
-        return $this->render('@Almni/Default/aboutus.html.twig');
+        return $this->render('@Almni/Front/Default/aboutus.html.twig');
     }
 }

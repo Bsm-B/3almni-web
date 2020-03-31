@@ -5,3 +5,12 @@ almni_homepage:
 almni_about:
     path:     /about
     defaults: { _controller: AlmniBundle:Default:about }
+
+almni_admin:
+    path:     /adminpanel
+    defaults: { _controller: AlmniBundle:Admin:index }
+
+
+almni_admin_test:
+    path:     /adminpanel/test
+    defaults: { _controller: AlmniBundle:Admin:test }
