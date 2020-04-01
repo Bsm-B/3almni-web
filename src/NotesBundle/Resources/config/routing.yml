@@ -1,3 +1,15 @@
 notes_homepage:
     path:     /
     defaults: { _controller: NotesBundle:Default:index }
+
+
+notes_matiere:
+    resource: "@NotesBundle/Resources/config/routing/matiere.yml"
+    prefix:   /matiere
+
+
+notes_note:
+    resource: "@NotesBundle/Resources/config/routing/note.yml"
+    prefix:   /note
+
+

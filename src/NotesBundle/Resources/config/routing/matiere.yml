@@ -1,0 +1,24 @@
+matiere_index:
+    path:     /
+    defaults: { _controller: "NotesBundle:Matiere:index" }
+    methods:  GET
+
+matiere_show:
+    path:     /{id}/show
+    defaults: { _controller: "NotesBundle:Matiere:show" }
+    methods:  GET
+
+matiere_new:
+    path:     /new
+    defaults: { _controller: "NotesBundle:Matiere:new" }
+    methods:  [GET, POST]
+
+matiere_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "NotesBundle:Matiere:edit" }
+    methods:  [GET, POST]
+
+matiere_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "NotesBundle:Matiere:delete" }
+    methods:  DELETE

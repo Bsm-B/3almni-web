@@ -12,4 +12,4 @@ fos_user:
 
 notes:
     resource: "@NotesBundle/Resources/config/routing.yml"
-    prefix:   /adminepanel/notes
+    prefix:   /adminpanel/
