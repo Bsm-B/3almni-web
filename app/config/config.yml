@@ -10,8 +10,11 @@ parameters:
     locale: en
 
 framework:
+
+    templating:
+        engines: ['twig']
     #esi: ~
-    #translator: { fallbacks: ['%locale%'] }
+    translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
     router:
         resource: '%kernel.project_dir%/app/config/routing.yml'
@@ -70,3 +73,11 @@ swiftmailer:
 sensio_framework_extra:
    router:
         annotations: false
+
+fos_user:
+    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
+    firewall_name: main
+    user_class: AlmniBundle\Entity\User
+    from_email:
+        address: "contact@olympains.ovh"
+        sender_name: "Contact"
