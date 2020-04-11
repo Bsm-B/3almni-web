@@ -25,6 +25,8 @@
                         </ol>
 
                         <a href="{{ path('note_new') }}">  <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Ajouter Note</button></a>
+
+
                     </div>
                 </div>
             </div>
@@ -86,6 +88,14 @@
 
                             </tbody>
                         </table>
+                        <label>Matiere ID</label>
+                        <input class="form-control">
+                        <label>Classe ID</label>
+                        <input class="form-control">
+                        <form method="get" action="http://localhost/3almni-web/barcode.pdf">
+                            <button class="btn waves-effect waves-light btn-rounded btn-warning" onclick="myFunction()">Genrate</button>
+
+                        </form>
                     </div>
                 </div>
             </div>
@@ -93,54 +103,6 @@
 
         </div>
     </div>
-
-
-    <!--
-    <h1>Notes list</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Formule</th>
-                <th>Idclasse</th>
-                <th>Idetudent</th>
-                <th>Idprof</th>
-                <th>Note</th>
-                <th>Remarque</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for note in notes %}
-            <tr>
-                <td><a href="{{ path('note_show', { 'id': note.id }) }}">{{ note.id }}</a></td>
-                <td>{{ note.formule }}</td>
-                <td>{{ note.idclasse }}</td>
-                <td>{{ note.idetudent }}</td>
-                <td>{{ note.idprof }}</td>
-                <td>{{ note.note }}</td>
-                <td>{{ note.remarque }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('note_show', { 'id': note.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('note_edit', { 'id': note.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('note_new') }}">Create a new note</a>
-        </li>
-    </ul>--->
 
 
 
@@ -191,6 +153,15 @@
                 });
                 $('.buttons-copy, .buttons-csv, .buttons-print, .buttons-pdf, .buttons-excel').addClass('btn btn-primary mr-1');
             });
+
+        </script>
+        <script>
+
+
+            function myFunction() {
+                alert("Generate Code a barre");
+
+            }
 
         </script>
     {% endblock %}

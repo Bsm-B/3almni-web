@@ -1,0 +1,10 @@
+note_new_prof:
+  path:     /newnote
+  defaults: { _controller: "NotesBundle:Note:newprof" }
+  methods:  [GET, POST]
+
+
+note_show_prof:
+  path:     /{id}/show
+  defaults: { _controller: "NotesBundle:Note:showprof" }
+  methods:  GET

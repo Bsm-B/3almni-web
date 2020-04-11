@@ -13,3 +13,8 @@ notes_note:
     prefix:   /note
 
 
+
+notes_note_prof:
+    resource: "@NotesBundle/Resources/config/routing/noteprof.yml"
+    prefix:   /prof
+

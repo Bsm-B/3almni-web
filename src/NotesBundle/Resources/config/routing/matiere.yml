@@ -22,3 +22,5 @@ matiere_delete:
     path:     /{id}/delete
     defaults: { _controller: "NotesBundle:Matiere:delete" }
     methods:  DELETE
+
+

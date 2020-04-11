@@ -51,6 +51,43 @@ class NoteController extends Controller
         ));
     }
 
+
+
+
+    public function newprofAction(Request $request)
+    {
+        $note = new Note();
+        $form = $this->createForm('NotesBundle\Form\NoteType', $note);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($note);
+            $em->flush();
+
+            return $this->redirectToRoute('note_show_prof', array('id' => $note->getId()));
+        }
+
+        return $this->render('@Almni/Admin/note_prof/new.html.twig', array(
+            'note' => $note,
+            'form' => $form->createView(),
+        ));
+    }
+
+
+
+    public function showprofAction(Note $note)
+    {
+        $deleteForm = $this->createDeleteForm($note);
+
+        return $this->render('@Almni/Admin/note_prof/show.html.twig', array(
+            'note' => $note,
+            'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+
+
     /**
      * Finds and displays a note entity.
      *
