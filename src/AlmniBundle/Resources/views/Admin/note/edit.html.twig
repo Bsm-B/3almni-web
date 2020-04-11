@@ -1,21 +1,92 @@
 {% extends '@Almni/Admin/base.html.twig' %}
 
 {% block body %}
-    <h1>Note edit</h1>
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h4 class="text-themecolor">Modifier Note</h4>
+        </div>
+        <div class="col-md-7 align-self-center text-right">
+            <div class="d-flex justify-content-end align-items-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Note</li>
+                    <li class="breadcrumb-item active">Modifier</li>
+                </ol>
 
-    <ul>
-        <li>
-            <a href="{{ path('note_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                <a href="{{ path('note_index') }}">  <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i>Retour à la liste</button></a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card card-body">
+                <h4 class="card-title">Modifier Note</h4>
+
+                {{ form_start(edit_form,{'attr':{'class':'frm-horizontal mt-4'}}) }}
+
+                <div class="form-group">
+                    <label>Formule</span></label>
+                    {{ form_widget(edit_form.formule,{'attr':{'class':'form-control','id':'Formule','type':'text','placeholder':'30% CC + 70 % EXAM'}}) }}
+                </div>
+
+
+                <div class="form-group">
+                    <label>Classe</label>
+                    {{ form_widget(edit_form.idclasse,{'attr':{'class':'form-control','id':'Classe','type':'text','placeholder':'3A2'}}) }}
+                </div>
+                <div class="form-group">
+                    <label>Etudent</label>
+
+                    {{ form_widget(edit_form.idetudent,{'attr':{'class':'form-control','id':'Etudent','type':'text','placeholder':'Foulen Ben Foulen'}}) }}
+
+                </div>
+
+                <div class="form-group">
+                    <label>Prof</label>
+
+                    {{ form_widget(edit_form.idprof,{'attr':{'class':'form-control','id':'Prof','type':'text','placeholder':'Foulen Ben Foulen'}}) }}
+
+                </div>
+
+                <div class="form-group">
+                    <label>Note</label>
+
+                    {{ form_widget(edit_form.note,{'attr':{'class':'form-control','id':'note','type':'text','placeholder':'20'}}) }}
+
+                </div>
+
+              <div class="form-group">
+                    <label>Remarque</label>
+
+                    {{ form_widget(edit_form.remarque,{'attr':{'class':'form-control','id':'remarque','type':'text','placeholder':'PASS'}}) }}
+
+                </div>
+
+
+                <div class="form-group">
+                    <label>Matiere</label>
+
+                    {{ form_widget(edit_form.idmatiere,{'attr':{'class':'form-control','id':'idmatiere','type':'ChoiceType'}}) }}
+
+                </div>
+
+
+
+
+                {{ form_widget(edit_form) }}
+                <input class="btn btn-rounded btn-block btn-success"  type="submit" value="Modifier" />
+                {{ form_end(edit_form) }}
+                <br>
+                {{ form_start(delete_form) }}
+                <input class="btn btn-rounded btn-block btn-dark" type="submit" value="Delete">
+                {{ form_end(delete_form) }}
+
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+
 {% endblock %}
