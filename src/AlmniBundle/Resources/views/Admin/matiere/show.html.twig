@@ -1,25 +1,70 @@
 {% extends '@Almni/Admin/base.html.twig' %}
 
 {% block body %}
-    <h1>Matiere</h1>
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h4 class="text-themecolor">Cards</h4>
+        </div>
+        <div class="col-md-7 align-self-center text-right">
+            <div class="d-flex justify-content-end align-items-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                    <li class="breadcrumb-item active">Cards</li>
+                </ol>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-12 m-t-30">
+            <h4 class="m-b-0">Matiere</h4>
+            <p class="text-muted m-t-0 font-12"> Matiere N° {{ matiere.id }} en detaille</p>
+            <div class="card-columns">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ matiere.nom }}</h4>
+                        <p class="card-text">{{ matiere.coefficient }}</p>
+                        <p class="card-text"><small class="text-muted">{{ matiere.cheffmodule }}</small></p>
+
+                        <a href="{{ path('matiere_index') }}" ><button type="button" class="btn waves-effect waves-light btn-rounded btn-danger">List des Matiere</button></a>
+
+                        <a href="{{ path('matiere_edit', { 'id': matiere.id }) }}" ><button type="button" class="btn waves-effect waves-light btn-rounded btn-warning">Modifier</button></a>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+<!--
+
+
 
     <table>
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ matiere.id }}</td>
+                <td></td>
             </tr>
             <tr>
                 <th>Nom</th>
-                <td>{{ matiere.nom }}</td>
+                <td></td>
             </tr>
             <tr>
                 <th>Coefficient</th>
-                <td>{{ matiere.coefficient }}</td>
+                <td></td>
             </tr>
             <tr>
                 <th>Cheffmodule</th>
-                <td>{{ matiere.cheffmodule }}</td>
+                <td></td>
             </tr>
         </tbody>
     </table>
@@ -29,7 +74,7 @@
             <a href="{{ path('matiere_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('matiere_edit', { 'id': matiere.id }) }}">Edit</a>
+            <a href="">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
@@ -37,4 +82,6 @@
             {{ form_end(delete_form) }}
         </li>
     </ul>
+
+    -->
 {% endblock %}

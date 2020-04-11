@@ -1,16 +1,60 @@
 {% extends '@Almni/Admin/base.html.twig' %}
 
 {% block body %}
-    <h1>Matiere creation</h1>
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h4 class="text-themecolor">Ajouter Matiere</h4>
+        </div>
+        <div class="col-md-7 align-self-center text-right">
+            <div class="d-flex justify-content-end align-items-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Matiere</li>
+                    <li class="breadcrumb-item active">Ajouter</li>
+                </ol>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+                <a href="{{ path('matiere_index') }}">  <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i>Retour à la liste</button></a>
+            </div>
+        </div>
+    </div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card card-body">
+            <h4 class="card-title">Default Forms</h4>
+            <h5 class="card-subtitle"> All bootstrap element classies </h5>
 
-    <ul>
-        <li>
-            <a href="{{ path('matiere_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    {{ form_start(form,{'attr':{'class':'frm-horizontal mt-4'}}) }}
+
+            <div class="form-group">
+                <label>Nom</label>
+                {{ form_widget(form.nom,{'attr':{'class':'form-control','id':'nom','type':'text','placeholder':'Symfony,C#...'}}) }}
+            </div>
+
+            <div class="form-group">
+                <label>coefficient</label>
+                {{ form_widget(form.coefficient,{'attr':{'class':'form-control','id':'nom','type':'text','placeholder':'X'}}) }}
+            </div>
+
+            <div class="form-group">
+                <label>Cheffmodule</label>
+                {{ form_widget(form.cheffmodule,{'attr':{'class':'form-control','id':'nom','type':'text','placeholder':'Folen ben folen'}}) }}
+            </div>
+
+
+
+            {{ form_widget(form) }}
+            <input class="btn btn-lg btn-success"  type="submit" value="Ajouter" />
+
+
+
+
+
+
+
+
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+
 {% endblock %}

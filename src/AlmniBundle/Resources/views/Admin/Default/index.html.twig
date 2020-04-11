@@ -290,3 +290,12 @@
 
 
 {% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+    <script src="{{ asset('back/node_modules/raphael/raphael-min.js') }}"></script>
+    <script src="{{ asset('back/node_modules/morrisjs/morris.min.js') }}"></script>
+    <script src="{{ asset('back/node_modules/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
+    <script src="{{ asset('back/dist/js/dashboard1.js') }}"></script>
+{% endblock %}
