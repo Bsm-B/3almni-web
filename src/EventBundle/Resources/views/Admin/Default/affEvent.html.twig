@@ -1,0 +1,150 @@
+{%  extends '@Almni/Admin/base.html.twig' %}
+{% block body %}
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h4 class="text-themecolor">Ajouter Evenement</h4>
+        </div>
+        <div class="col-md-7 align-self-center text-right">
+            <div class="d-flex justify-content-end align-items-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Evenement</a></li>
+                    <li class="breadcrumb-item active">Ajouter Evenement</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Data Export</h4>
+                    <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
+                    <div class="table-responsive m-t-40">
+                        <div class="form-group m-b-40">
+                            <a class="btn waves-effect waves-light btn-success"  href="{{ path('ajoutEventAdmin') }}">Ajouter</a>
+                        </div>
+                        <table id="example23"
+                               class="display nowrap table table-hover table-striped table-bordered"
+                               cellspacing="0" width="100%">
+                            <thead>
+                            <tr>
+                            <th>ID</th>
+                            <th>Image</th>
+                            <th>Nom</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th>Lieu</th>
+                            <th>Organizateur</th>
+                            <th>Ratting</th>
+                            <th>Modifier</th>
+                            <th>Suprimer</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Image</th>
+                            <th>Nom</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th>Lieu</th>
+                            <th>Organizateur</th>
+                            <th>Ratting</th>
+                            <th>Modifier</th>
+                            <th>Suprimer</th>
+                        </tr>
+                        </tfoot>
+
+
+                        {% for e in Evenement %}
+                            <tr>
+                                <td>{{ e.id }}</td>
+                                <td><img src= "{{ asset('back/imagesEvent/' ~ e.image ) }}"  width="160" height="160"/></td>
+                                <td>{{ e.nom }}</td>
+                                <td>{{ e.description }}</td>
+                                <td>{{ e.getDate()|date('d-m-Y H:i:s') }}</td>
+                                <td>{{ e.lieu }}</td>
+                                <td>{{ e.organizateur }}</td>
+                                <td>{{ e.rating  |  rating }}</td>
+                                <td><a href="{{ path('modifEventAdmin', {'id': e.id }) }}">Modifier</a></td>
+                                <td><a href="{{ path('suppEventAdmin', {'id': e.id }) }}">Suprimer</a></td>
+                            </tr>
+
+
+                        {% endfor %}
+                        </table>
+                    </div>
+                </div>
+                </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+    <script>
+        $(function () {
+            $('#myTable').DataTable({
+                "bPaginate": false,
+            });
+            var table = $('#example').DataTable({
+                "columnDefs": [{
+                    "visible": false,
+                    "targets": 2
+                }],
+                "order": [
+                    [2, 'asc']
+                ],
+                "displayLength": 25,
+                "drawCallback": function (settings) {
+                    var api = this.api();
+                    var rows = api.rows({
+                        page: 'current'
+                    }).nodes();
+                    var last = null;
+                    api.column(3, {
+                        page: 'current'
+                    }).data().each(function (group, i) {
+                        if (last !== group) {
+                            $(rows).eq(i).before('<tr class="group"><td colspan="5">' + group + '</td></tr>');
+                            last = group;
+                        }
+                    });
+                }
+            });
+            // Order by the grouping
+            $('#example tbody').on('click', 'tr.group', function () {
+                var currentOrder = table.order()[0];
+                if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
+                    table.order([2, 'desc']).draw();
+                } else {
+                    table.order([2, 'asc']).draw();
+                }
+            });
+            // responsive table
+            $('#config-table').DataTable({
+                responsive: true
+            });
+            $('#example23').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+            $('.buttons-copy, .buttons-csv, .buttons-print, .buttons-pdf, .buttons-excel').addClass('btn btn-primary mr-1');
+        });
+
+    </script>
+    <script src="{{ asset('back/node_modules/echarts/echarts-init.js') }}"></script>
+    <script src="{{ asset('back/node_modules/echarts/echarts-all.js') }}"></script>
+{% endblock %}

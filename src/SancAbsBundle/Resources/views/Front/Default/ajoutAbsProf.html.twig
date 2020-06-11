@@ -1,0 +1,38 @@
+{%  extends '@Almni/Front/base.html.twig' %}
+{% block body %}
+    <section class="flat-register-now">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 effect-animation" data-animation="fadeInLeft" data-animation-delay="0.2s" data-animation-offset="75%">
+                    <div class="wrap-form flat-text-center">
+                        <div class="heading">
+                            <h6 class="title">Ajouter</h6>
+                            <p class="description">Ajouter Absence Eleve</p>
+
+                            {{ form_start(form) }}
+                            <div class="wrap-input">
+                                <label>Eleve </label>
+                                {{ form_widget(form.eleve,{'attr':{'placeholder':''}}) }}
+                            </div>
+                            <div class="wrap-input">
+                                <label>Classe </label>
+                                {{ form_widget(form.classe,{'attr':{'placeholder':''}}) }}
+                            </div>
+                            <div class="wrap-input">
+                                <label>Matiere </label>
+                                {{ form_widget(form.matiere,{'attr':{'placeholder':''}}) }}
+                            </div>
+                            <div class="wrap-btn">
+                                <button class="flat-button btn-apply">Ajouter</button>
+                            </div>
+
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> <!-- /.flat-register-now -->
+
+{% endblock %}

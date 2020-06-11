@@ -1,0 +1,65 @@
+{%  extends '@Almni/Admin/base.html.twig' %}
+{% block body %}
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h4 class="text-themecolor">Ajouter Prof</h4>
+        </div>
+        <div class="col-md-7 align-self-center text-right">
+            <div class="d-flex justify-content-end align-items-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                    <li class="breadcrumb-item active">Ajouter Prof</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Ajouter Prof</h4>
+                    {{ form_start(form,{'attr':{'class':'floating-labels m-t-40'}}) }}
+                    <div class="form-group m-b-40">
+                        <label for="input6">Nom</label>
+                        {{ form_widget(form.nom,{'attr':{'class':'form-control p-0','id':'input6'}}) }}
+                        <span class="bar"></span>
+                    </div>
+                    <div class="form-group m-b-40">
+                        <label for="input6">Prenom</label>
+                        {{ form_widget(form.prenom,{'attr':{'class':'form-control p-0','id':'input6'}}) }}
+                        <span class="bar"></span>
+                    </div>
+                    <div class="form-group m-b-40">
+                        <label for="input6">Adresse</label>
+                        {{ form_widget(form.adress,{'attr':{'class':'form-control p-0','id':'input6'}}) }}
+                        <span class="bar"></span>
+                    </div>
+                    <div class="form-group m-b-40">
+                        <label for="input6">Date de naissance</label>
+                        {{ form_widget(form.datenaiss,{'attr':{'class':'form-control p-0','id':'input6'}}) }}
+                        <span class="bar"></span>
+                    </div>
+                    <div class="form-group m-b-40">
+                        <label for="input6">Telephone</label>
+                        {{ form_widget(form.tel,{'attr':{'class':'form-control p-0','id':'input6'}}) }}
+                        <span class="bar"></span>
+                    </div>
+                    <div class="form-group m-b-40">
+                        <label for="input6">Cin</label>
+                        {{ form_widget(form.cin,{'attr':{'class':'form-control p-0','id':'input6'}}) }}
+                        <span class="bar"></span>
+                    </div>
+                    <div class="form-group m-b-40">
+                        <label for="input6">Specialité</label>
+                        {{ form_widget(form.specialite,{'attr':{'class':'form-control p-0','id':'input6'}}) }}
+                        <span class="bar"></span>
+                    </div>
+                    <button class="btn waves-effect waves-light btn-secondary" type="submit">Ajouter</button>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{%  extends '@Almni/Admin/base.html.twig' %}
+
+{% block body %}
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h4 class="text-themecolor">Modifier Eleve</h4>
+        </div>
+        <div class="col-md-7 align-self-center text-right">
+            <div class="d-flex justify-content-end align-items-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                    <li class="breadcrumb-item active">Modifier Eleve</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Modifier Eleve</h4>
+                    <div class="form-group m-b-40">
+                        <a class="btn waves-effect waves-light btn-light" href="{{ path('AffEleveAdmin') }}">Afficher</a>
+                    </div>
+
+                    {{ form_start(edit_form,{'attr':{'class':'floating-labels m-t-40'}}) }}
+                    <div class="form-group m-b-40">
+                        <label for="input6">Nom</label>
+                        {{ form_widget(edit_form.nom,{'attr':{'class':'form-control p-0','id':'input6'}}) }}
+                        <span class="bar"></span>
+                    </div>
+                    <div class="form-group m-b-40">
+                        <label for="input6">Prenom</label>
+                        {{ form_widget(edit_form.prenom,{'attr':{'class':'form-control p-0','id':'input6'}}) }}
+                        <span class="bar"></span>
+                    </div>
+                    <div class="form-group m-b-40">
+                        <label for="input6">Adress</label>
+                        {{ form_widget(edit_form.adress,{'attr':{'class':'form-control p-0','id':'input6'}}) }}
+                        <span class="bar"></span>
+                    </div>
+                    <div class="form-group m-b-40">
+                        <label for="input6">Date</label>
+                        {{ form_widget(edit_form.datenaiss,{'attr':{'class':'form-control p-0','id':'input6'}}) }}
+                        <span class="bar"></span>
+                    </div>
+                    <div class="form-group m-b-40">
+                        <label for="input6">Telephone</label>
+                        {{ form_widget(edit_form.tel,{'attr':{'class':'form-control p-0','id':'input6'}}) }}
+                        <span class="bar"></span>
+                    </div>
+                    <div class="form-group m-b-40">
+                        <label for="input6">Branche</label>
+                        {{ form_widget(edit_form.branche,{'attr':{'class':'form-control p-0','id':'input6'}}) }}
+                        <span class="bar"></span>
+                    </div>
+                    <div class="form-group m-b-40">
+                        <label for="input6">Parent</label>
+                        {{ form_widget(edit_form.parent,{'attr':{'class':'form-control p-0','id':'input6'}}) }}
+                        <span class="bar"></span>
+                    </div>
+                    <div class="form-group m-b-40">
+                        <label for="input6">Classe</label>
+                        {{ form_widget(edit_form.classe,{'attr':{'class':'form-control p-0','id':'input6'}}) }}
+                        <span class="bar"></span>
+                    </div>
+                    <button class="btn waves-effect waves-light btn-secondary" type="submit">Modifier</button>
+                    {{ form_end(edit_form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

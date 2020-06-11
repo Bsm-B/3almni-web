@@ -1,0 +1,70 @@
+<?php
+
+namespace EventBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Absence
+ *
+ * @ORM\Table(name="absence", indexes={@ORM\Index(name="IDX_765AE0C93AA469EE", columns={"ideleve"}), @ORM\Index(name="IDX_765AE0C94F100524", columns={"idmatiere"}), @ORM\Index(name="IDX_765AE0C9EB3A123A", columns={"idclasse"})})
+ * @ORM\Entity
+ */
+class Absence
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateabsence", type="datetime", nullable=false)
+     */
+    private $dateabsence;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nbrheure", type="integer", nullable=false)
+     */
+    private $nbrheure;
+
+    /**
+     * @var \Profileleve
+     *
+     * @ORM\ManyToOne(targetEntity="Profileleve")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ideleve", referencedColumnName="id")
+     * })
+     */
+    private $ideleve;
+
+    /**
+     * @var \Classe
+     *
+     * @ORM\ManyToOne(targetEntity="Classe")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idclasse", referencedColumnName="id")
+     * })
+     */
+    private $idclasse;
+
+    /**
+     * @var \Matiere
+     *
+     * @ORM\ManyToOne(targetEntity="Matiere")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idmatiere", referencedColumnName="id")
+     * })
+     */
+    private $idmatiere;
+
+
+}
+

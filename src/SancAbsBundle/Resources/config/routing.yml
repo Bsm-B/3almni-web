@@ -1,0 +1,146 @@
+sanc_abs_homepage:
+    path:     /
+    defaults: { _controller: SancAbsBundle:Default:index }
+ajoutAbsAdmin:
+    path:     /AjouterAbsenceAdmin
+    defaults: { _controller: SancAbsBundle:Absence:AjoutAbsAdmin }
+ajoutAbs:
+    path:     /AjouterAbsenceProf
+    defaults: { _controller: SancAbsBundle:Absence:ajoutAbs }
+affAbsAdmin:
+    path:     /AfficherAbsenceAdmin
+    defaults: { _controller: SancAbsBundle:Absence:affAbsAdmin }
+affAbs:
+    path:     /AfficherAbsence
+    defaults: { _controller: SancAbsBundle:Absence:affAbs }
+
+affAbsprof:
+    path:     /AfficherAbsenceProf
+    defaults: { _controller: SancAbsBundle:Absence:affAbsprof }
+modifAbsAdmin:
+    path:     /ModifierAbsenceAdmin/{id}
+    defaults: { _controller: SancAbsBundle:Absence:modifAbsAdmin }
+modifAbs:
+    path:     /ModifierAbsenceProf/{id}
+    defaults: { _controller: SancAbsBundle:Absence:modifAbs }
+suppAbsAdmin:
+    path:   /SupprimerAbsAdmin/{id}
+    defaults: {_controller: SancAbsBundle:Absence:suppAbsAdmin}
+suppAbsProf:
+    path:   /SupprimerAbsProf/{id}
+    defaults: {_controller: SancAbsBundle:Absence:suppAbsProf}
+
+ajoutAbsempAdmin:
+    path:     /AjouterAbsenceEmployeAdmin
+    defaults: { _controller: SancAbsBundle:Absenceemploye:AjoutAbsempAdmin }
+affAbsempAdmin:
+    path:     /AfficherAbsenceEmployeAdmin
+    defaults: { _controller: SancAbsBundle:Absenceemploye:affAbsempAdmin }
+affAbsemp:
+    path:     /AfficherAbsenceEmploye
+    defaults: { _controller: SancAbsBundle:Absenceemploye:affAbsemp }
+modifAbsempAdmin:
+    path:     /ModifierAbsenceEmployeAdmin/{id}
+    defaults: { _controller: SancAbsBundle:Absenceemploye:modifAbsempAdmin }
+suppAbsempAdmin:
+    path:   /SupprimerAbsempAdmin/{id}
+    defaults: {_controller: SancAbsBundle:Absenceemploye:suppAbsempAdmin }
+
+ajoutSancAdmin:
+    path:     /AjouterSanctionAdmin
+    defaults: { _controller: SancAbsBundle:Sanction:AjoutSancAdmin }
+affSancAdmin:
+    path:     /AfficherSanctionAdmin
+    defaults: { _controller: SancAbsBundle:Sanction:affSancAdmin }
+affSanc:
+    path:     /AfficherSanction
+    defaults: { _controller: SancAbsBundle:Sanction:affSanc }
+modifSancAdmin:
+    path:     /ModifierSanctionAdmin/{id}
+    defaults: { _controller: SancAbsBundle:Sanction:modifSancAdmin }
+suppSancAdmin:
+    path:   /SupprimerSancAdmin/{id}
+    defaults: {_controller: SancAbsBundle:Sanction:suppSancAdmin}
+
+affSancempAdmin:
+    path:     /AfficherSanctionEmployeAdmin
+    defaults: { _controller: SancAbsBundle:Sanctionemploye:affSancempAdmin }
+affSancemp:
+    path:     /AfficherSanctionEmploye
+    defaults: { _controller: SancAbsBundle:Sanctionemploye:affSancemp }
+suppSancempAdmin:
+    path:   /SupprimerSancempAdmin/{id}
+    defaults: {_controller: SancAbsBundle:Sanctionemploye:suppSancempAdmin}
+
+affAbsMob:
+    path: /affAbsMob
+    defaults: { _controller: SancAbsBundle:Absence:affAbsMob }
+affClasseMob:
+    path: /affClasseMob
+    defaults: { _controller: SancAbsBundle:Absence:affClassesMob }
+affMatiereMob:
+    path: /affMatiereMob
+    defaults: { _controller: SancAbsBundle:Absence:affMatieresMob }
+
+affAbsEmpMob:
+    path: /absenceemployes/affAbsEmpMob
+    defaults: { _controller: SancAbsBundle:Absenceemploye:affAbsEmpMob }
+
+affSancMob:
+    path: /sanctions/affSancMob
+    defaults: { _controller: SancAbsBundle:Sanction:affSancMob }
+
+findAbsMob:
+    path: /absences/findAbsMob/
+    defaults: { _controller: SancAbsBundle:Absence:findAbsMob }
+findClasseMob:
+    path: /absences/findClasseMob/
+    defaults: { _controller: SancAbsBundle:Absence:findClasseMob }
+findClasseNomMob:
+    path: /absences/findClasseNomMob/
+    defaults: { _controller: SancAbsBundle:Absence:findClasseNomMob }
+findMatiereMob:
+    path: /absences/findMatiereMob/
+    defaults: { _controller: SancAbsBundle:Absence:findMatiereMob }
+findMatiereNomMob:
+    path: /absences/findMatiereNomMob/
+    defaults: { _controller: SancAbsBundle:Absence:findMatiereNomMob }
+
+findAbsEmpMob:
+    path: /absenceemployes/findAbsEmpMob/
+    defaults: { _controller: SancAbsBundle:Absenceemploye:findAbsEmpMob }
+
+findSancMob:
+    path: /sanctions/findSancMob/
+    defaults: { _controller: SancAbsBundle:Sanction:findSancMob }
+
+ajoutAbsMob:
+    path: /absences/abs
+    defaults: { _controller: SancAbsBundle:Absence:ajoutAbsMob }
+modifAbsMob:
+    path: /absences/edit
+    defaults: { _controller: SancAbsBundle:Absence:modifAbsMob }
+suppAbsMob:
+    path: /absences/del
+    defaults: { _controller: SancAbsBundle:Absence:suppAbsmob }
+
+ajoutAbsEmpMob:
+    path: /absenceemployes/
+    defaults: { _controller: SancAbsBundle:Absenceemploye:ajoutAbsEmpMob }
+modifAbsEmpMob:
+    path: /absenceemployes/edit
+    defaults: { _controller: SancAbsBundle:Absenceemploye:modifAbsEmpMob }
+suppAbsEmpMob:
+    path: /absenceemployes/del
+    defaults: { _controller: SancAbsBundle:Absenceemploye:suppAbsEmpMob }
+
+ajoutSancMob:
+    path: /sanction/
+    defaults: { _controller: SancAbsBundle:Sanction:ajoutSancMob }
+modifSancEmpMob:
+    path: /sanction/edit
+    defaults: { _controller: SancAbsBundle:Sanction:modifSancMob }
+
+suppSancMob:
+    path: /sanction/del
+    defaults: { _controller: SancAbsBundle:Sanction:suppSancMob }

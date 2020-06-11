@@ -1,0 +1,109 @@
+{%  extends '@Almni/Front/base.html.twig' %}
+
+{% block body %}
+    <section class="flat-title-page parallax parallax4 style2">
+        <div class="overlay"></div>
+        <div class="container wrap-title-page flat-text-center">
+            <div class="title-page">
+                <h2 class="title font-weight-700"><a href="#">liste des Absences</a></h2>
+            </div>
+            <div class="breadcrumbs style2">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Absences</a></li>
+                </ul>
+            </div>
+
+            <div class="flat-search">
+                <div class="form">
+                    <input type="search" name="key" placeholder="Search" required="">
+                    <button class="btn-search flat-button"><span class="icon-search"></span></button>
+                </div>
+            </div> <!-- /.flat-search -->
+        </div>
+    </section> <!-- /.flat-title-page -->
+
+    <div class="content-wrap event-v1-page">
+    <div class="container">
+    <div class="content-page-wrap">
+    <div class="flat-events style1">
+        {% for e in Evenement %}
+<div class="event style1 v1">
+        <div class="row">
+            <div class=" col-lg-7 col-md-12">
+                <div class="event-img">
+                    <a href="#"><img src="{{ asset('back/imagesEvent/' ~ e.image ) }}" alt="bookflare"></a>
+                    <div class="meta-date flat-text-center">
+                        <div class="meta-date flat-text-center">
+                            <span class="day">{{e.getDate()|date('d')}}</span>
+                            <span class="month">{{e.getDate()|date('F')}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-lg-5 col-md-12">
+                <div class="event-content">
+                    <div class="meta-datetime">
+                        <ul class="list">
+                            <li><a href="#">{{e.getDate()|date('l')}}</a></li>
+                            <li><a href="#">{{e.getDate()|date('d F')}}</a></li>
+                            <li><a href="#">{{e.getDate()|date('H:i')}}</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="content">
+                        <h3 class="title"><a href="#">{{ e.nom }}</a></h3>
+                        <p class="description">{{ e.description }}</p>
+                    </div>
+
+                    <div class="author clearfix">
+                        <div class="author-info">
+                            <h4 class="name"><a href="#">{{ e.lieu }}</a></h4>
+                            <p class="text">{{ e.rating  |  rating }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        {% endfor %}
+        {{ knp_pagination_render(Evenement) }}
+
+    </div></div></div></div>
+    <section class="flat-feature parallax parallax2">
+        <div class="container">
+            <div class="row flat-iconbox style1">
+                <div class="col-lg-4 col-md-4">
+                    <div class="iconbox style1 left">
+                        <div class="iconbox-icon">
+                            <span class="icon-book"></span>
+                        </div>
+                        <div class="iconbox-content">
+                            <h5 class="title">80,000 ONLINE COURSES</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="iconbox style1 center">
+                        <div class="iconbox-icon">
+                            <span class="icon-people"></span>
+                        </div>
+                        <div class="iconbox-content">
+                            <h5 class="title">EXPERT INSTRUCTION</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="iconbox style1 right">
+                        <div class="iconbox-icon">
+                            <span class="icon-key"></span>
+                        </div>
+                        <div class="iconbox-content">
+                            <h5 class="title">LIFETIME ACCESS</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

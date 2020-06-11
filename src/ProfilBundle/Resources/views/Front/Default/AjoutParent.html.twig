@@ -1,0 +1,45 @@
+{%  extends '@Almni/Front/base.html.twig' %}
+
+{% block body %}
+    <section class="flat-register-now">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 effect-animation" data-animation="fadeInLeft" data-animation-delay="0.2s" data-animation-offset="75%">
+                    <div class="wrap-form flat-text-center">
+                        <div class="heading">
+                            <h6 class="title"> START MY FREE MONTH </h6>
+                            <p class="description">Stay Sharp. Get ahead with Learning Paths.</p>
+                        </div>
+                        {{ form_start(form) }}
+                        <div class="wrap-input">
+                            {{ form_widget(form.nom,{'attr':{'placeholder':'Nom'}}) }}
+                        </div>
+                        <div class="wrap-input">
+                            {{ form_widget(form.prenom,{'attr':{'placeholder':'Prenom'}}) }}
+                        </div>
+                        <div class="wrap-input">
+                            {{ form_widget(form.adress,{'attr':{'placeholder':'Adress'}}) }}
+                        </div>
+                        <div class="wrap-input last-child">
+                            <label  >Date naissance </label>
+
+                            {{ form_widget(form.datenaiss) }}
+                        </div>
+                        <div class="wrap-input last-child">
+                            {{ form_widget(form.tel,{'attr':{'placeholder':'Telephone'}}) }}
+                        </div>
+                        <div class="wrap-input last-child">
+                            {{ form_widget(form.cin,{'attr':{'placeholder':'cin'}}) }}
+                        </div>
+                        <div class="wrap-btn">
+                            <button class="flat-button btn-apply">Regiter</button>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> <!-- /.flat-register-now -->
+
+{% endblock %}

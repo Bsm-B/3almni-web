@@ -1,0 +1,92 @@
+profil_homepage:
+    path:     /
+    defaults: { _controller: ProfilBundle:Default:index }
+
+AjoutEleve:
+    path:     /InscriptionEleve
+    defaults: { _controller: ProfilBundle:Profileleve:AjoutEleve }
+
+AffEleveAdmin:
+    path:     /AfficherEleveAdmin
+    defaults: { _controller: ProfilBundle:Profileleve:AffEleveAdmin }
+
+AffEleveMob:
+    path:     /AfficherEleveMob
+    defaults: { _controller: ProfilBundle:Profileleve:affEleveMob }
+FindEleveMob:
+    path:     /FindEleveMob/
+    defaults: { _controller: ProfilBundle:Profileleve:findeleveMob }
+FindEleveNomMob:
+    path:     /FindEleveNomMob/
+    defaults: { _controller: ProfilBundle:Profileleve:findelevenomMob }
+
+AffEleve:
+    path:     /AfficherEleve
+    defaults: { _controller: ProfilBundle:Profileleve:AffEleve }
+
+ModifEleveAdmin:
+    path:     /ModifierEleveAdmin/{id}
+    defaults: { _controller: ProfilBundle:Profileleve:ModifEleveAdmin }
+
+SuppEleveAdmin:
+    path:   /SupprimerEleveAdmin/{id}
+    defaults: {_controller: ProfilBundle:Profileleve:SuppEleveAdmin}
+
+AjoutParent:
+    path:     /InscriptionParent
+    defaults: { _controller: ProfilBundle:Profilparent:AjoutParent }
+
+AffParentAdmin:
+    path:     /AfficherParentAdmin
+    defaults: { _controller: ProfilBundle:Profilparent:AffParentAdmin }
+
+ModifParentAdmin:
+    path:     /ModifierParentAdmin/{id}
+    defaults: { _controller: ProfilBundle:Profilparent:ModifParentAdmin }
+
+SuppParentAdmin:
+    path:   /SupprimerParentAdmin/{id}
+    defaults: {_controller: ProfilBundle:Profilparent:SuppParentAdmin}
+
+AjoutProf:
+    path:     /AjouterProf
+    defaults: { _controller: ProfilBundle:Profilprof:AjoutProf }
+
+AffProfAdmin:
+    path:     /AfficherProfAdmin
+    defaults: { _controller: ProfilBundle:Profilprof:AffProfAdmin }
+affProfMob:
+    path:     /AfficherProfMob
+    defaults: { _controller: ProfilBundle:Profilprof:affProfMob }
+findProfMob:
+    path:     /findProfMob/
+    defaults: { _controller: ProfilBundle:Profilprof:findProfMob }
+findProfnomMob:
+    path:     /findProfNomMob/
+    defaults: { _controller: ProfilBundle:Profilprof:findProfnomMob }
+
+ModifProfAdmin:
+    path:     /ModifierProfAdmin/{id}
+    defaults: { _controller: ProfilBundle:Profilprof:ModifProfAdmin }
+
+SuppProfAdmin:
+    path:   /SupprimerProfAdmin/{id}
+    defaults: {_controller: ProfilBundle:Profilprof:SuppProfAdmin}
+
+AjoutAdmin:
+    path:     /AjouterAdmin
+    defaults: { _controller: ProfilBundle:Profiladmin:AjoutAdmin }
+
+AffAdmin:
+    path:     /AfficherAdmin
+    defaults: { _controller: ProfilBundle:Profiladmin:AffAdmin }
+
+ModifAdmin:
+    path:     /ModifierAdmin/{id}
+    defaults: { _controller: ProfilBundle:Profiladmin:ModifAdmin }
+SuppAdmin:
+    path:   /SupprimerAdmin/{id}
+    defaults: {_controller: ProfilBundle:Profiladmin:SuppAdmin}
+findusermob:
+    path:     /findusermob/
+    defaults: { _controller: ProfilBundle:Profiladmin:findUserMob }

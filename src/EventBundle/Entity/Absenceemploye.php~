@@ -1,0 +1,50 @@
+<?php
+
+namespace EventBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Absenceemploye
+ *
+ * @ORM\Table(name="absenceemploye", indexes={@ORM\Index(name="IDX_8B323A49270081D7", columns={"idemploye"})})
+ * @ORM\Entity
+ */
+class Absenceemploye
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateabsence", type="datetime", nullable=false)
+     */
+    private $dateabsence;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nbrheure", type="integer", nullable=false)
+     */
+    private $nbrheure;
+
+    /**
+     * @var \Profilprof
+     *
+     * @ORM\ManyToOne(targetEntity="Profilprof")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idemploye", referencedColumnName="id")
+     * })
+     */
+    private $idemploye;
+
+
+}
+

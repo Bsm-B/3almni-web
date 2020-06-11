@@ -1,0 +1,65 @@
+{%  extends '@Almni/Admin/base.html.twig' %}
+{% block body %}
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h4 class="text-themecolor">Ajouter Sanction</h4>
+        </div>
+        <div class="col-md-7 align-self-center text-right">
+            <div class="d-flex justify-content-end align-items-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                    <li class="breadcrumb-item active">Ajouter Sanction</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Ajouter Sanction</h4>
+                    {{ form_start(form,{'attr':{'class':'floating-labels m-t-40'}}) }}
+                    <div class="form-group m-b-40">
+                        <label for="input6">Eleve	</label>
+                        {{ form_widget(form.eleve,{'attr':{'class':'form-control p-0','id':'input6'}}) }}
+                        <span class="bar"></span>
+                    </div>
+                    <div class="form-group m-b-40">
+                        <label for="input6">Nature	</label>
+                        {{ form_widget(form.nature,{'attr':{'class':'form-control p-0','id':'input6'}}) }}
+                    </div>
+                    <div class="form-group m-b-40">
+                        <label for="input6">Commentaire	</label>
+                        {{ form_widget(form.commentaire,{'attr':{'class':'form-control p-0','id':'input6'}}) }}
+                    </div>
+                    <button class="btn waves-effect waves-light btn-secondary" type="submit"> Ajouter </button>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://cdn.ckeditor.com/4.8.0/full-all/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('sancabsbundle_sanction_commentaire', {
+            skin: 'moono',
+            enterMode: CKEDITOR.ENTER_BR,
+            shiftEnterMode:CKEDITOR.ENTER_P,
+            toolbar: [{ name: 'basicstyles', groups: [ 'basicstyles' ], items: [ 'Bold', 'Italic', 'Underline', "-", 'TextColor', 'BGColor' ] },
+                { name: 'styles', items: [ 'Format', 'Font', 'FontSize' ] },
+                { name: 'scripts', items: [ 'Subscript', 'Superscript' ] },
+                { name: 'justify', groups: [ 'blocks', 'align' ], items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
+                { name: 'paragraph', groups: [ 'list', 'indent' ], items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent'] },
+                { name: 'links', items: [ 'Link', 'Unlink' ] },
+                { name: 'insert', items: [ 'Image'] },
+                { name: 'spell', items: [ 'jQuerySpellChecker' ] },
+                { name: 'table', items: [ 'Table' ] }
+            ],
+        });
+    </script>
+{% endblock %}

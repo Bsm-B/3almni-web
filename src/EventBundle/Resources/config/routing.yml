@@ -1,0 +1,27 @@
+almni_homepage:
+    path:     /
+    defaults: { _controller: EventBundle:Default:index }
+ajoutEventAdmin:
+    path:     /AjouterEvenementAdmin
+    defaults: { _controller: EventBundle:Evenement:AjoutEventAdmin }
+ajoutEventMob:
+    path:     /evenement/add
+    defaults: { _controller: EventBundle:Evenement:AjoutEventMob }
+affEventAdmin:
+    path:     /AfficherEvenementAdmin
+    defaults: { _controller: EventBundle:Evenement:AffEventAdmin }
+affEvent:
+    path:     /AfficherEvenement
+    defaults: { _controller: EventBundle:Evenement:AffEvent }
+affEventMob:
+    path:     /AfficherEvenementMobile
+    defaults: { _controller: EventBundle:Evenement:affEvenMob }
+modifEventAdmin:
+    path:     /ModifierEvenementAdmin/{id}
+    defaults: { _controller: EventBundle:Evenement:ModifEventAdmin }
+suppEventAdmin:
+    path:   /SupprimerEventAdmin/{id}
+    defaults: {_controller: EventBundle:Evenement:SuppEventAdmin}
+suppEventMob:
+    path: /evenement/del
+    defaults: { _controller: EventBundle:Evenement:suppEventmob }

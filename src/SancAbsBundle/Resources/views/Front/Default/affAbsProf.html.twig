@@ -1,0 +1,106 @@
+{%  extends '@Almni/Front/base.html.twig' %}
+{% block body %}
+<section class="flat-title-page parallax parallax4 style2">
+    <div class="overlay"></div>
+    <div class="container wrap-title-page flat-text-center">
+        <div class="title-page">
+            <h2 class="title font-weight-700"><a href="#">liste des Absences</a></h2>
+        </div>
+        <div class="breadcrumbs style2">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Absences</a></li>
+            </ul>
+        </div>
+
+        <div class="flat-search">
+            <div class="form">
+                <input type="search" name="key" placeholder="Search" required="">
+                <button class="btn-search flat-button"><span class="icon-search"></span></button>
+            </div>
+        </div> <!-- /.flat-search -->
+    </div>
+</section> <!-- /.flat-title-page -->
+    <div class="content-wrap  courses-grid-v1-page">
+        <div class="container-fluid">
+            <div class="content-page-wrap">
+                <h6 class="title"><a href="{{ path('ajoutAbs') }}">Ajouter Absence</a></h6>
+
+                <ul class="flat-filter-isotype style1 text-center ">
+                    <li class="active"><a href="#" data-filter="*">DEVELOPMENT</a></li>
+                    <li><a href="#" data-filter=".Design">DESIGN </a></li>
+                    <li><a href="#" data-filter=".Marketing"> MARKETING</a></li>
+                    <li><a href="#" data-filter=".Photography"> PHOTOGRAPHY </a></li>
+                    <li><a href="#" data-filter=".Leadership ">LEADERSHIP</a></li>
+                    <li><a href="#" data-filter=".Business ">BUSINESS STUDIES</a></li>
+                </ul>
+
+                <div class="flat-courses clearfix isotope-courses">
+                    {% for a in Absence %}
+
+    <div class="course one-of-four text-2ebd59 Marketing Design ">
+        <div class="course-border border-f-e6f3ff border-ra4 transition-vline">
+            <div class="course-img img-vline">
+                <div class="overlay">
+                    <span class="vline"></span>
+                    <span class="vline vline-bottom"></span>
+                </div>
+            </div>
+            <div class="course-content">
+                <div class="text-wrap border-bt-e6f3ff">
+                    <h6 class="title">{{ a.eleve.nom }} {{ a.eleve.prenom }}</h6>
+                    <p class="teacher"><a href="#">{{ a.matiere.nom }}</a></p>
+                    <p class="description">{{ a.getDateabsence()|date('d-m-Y H:i:s') }}</p>
+                    <p class="description">{{ a.classe.nom  }}</p>
+                </div>
+                <h6 class="title"><a href="{{ path('modifAbs', {'id': a.id }) }}">Modifier</a></h6>
+                <h6 class="title"><a href="{{ path('suppAbsProf', {'id': a.id }) }}">Suprimer</a></h6>
+
+            </div>
+        </div>
+
+
+    </div> <!-- /.course -->
+ {% endfor %}
+
+                </div>
+    </div>
+    </div>
+    </div>
+    <section class="flat-feature parallax parallax2">
+        <div class="container">
+            <div class="row flat-iconbox style1">
+                <div class="col-lg-4 col-md-4">
+                    <div class="iconbox style1 left">
+                        <div class="iconbox-icon">
+                            <span class="icon-book"></span>
+                        </div>
+                        <div class="iconbox-content">
+                            <h5 class="title">80,000 ONLINE COURSES</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="iconbox style1 center">
+                        <div class="iconbox-icon">
+                            <span class="icon-people"></span>
+                        </div>
+                        <div class="iconbox-content">
+                            <h5 class="title">EXPERT INSTRUCTION</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="iconbox style1 right">
+                        <div class="iconbox-icon">
+                            <span class="icon-key"></span>
+                        </div>
+                        <div class="iconbox-content">
+                            <h5 class="title">LIFETIME ACCESS</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,64 @@
+<?php
+
+namespace EventBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Sanction
+ *
+ * @ORM\Table(name="sanction", indexes={@ORM\Index(name="IDX_6D6491AF3AA469EE", columns={"ideleve"})})
+ * @ORM\Entity
+ */
+class Sanction
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idadmin", type="integer", nullable=false)
+     */
+    private $idadmin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nature", type="string", length=255, nullable=false)
+     */
+    private $nature;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="commentaire", type="string", length=255, nullable=false)
+     */
+    private $commentaire;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="datecreation", type="datetime", nullable=false)
+     */
+    private $datecreation;
+
+    /**
+     * @var \Profileleve
+     *
+     * @ORM\ManyToOne(targetEntity="Profileleve")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ideleve", referencedColumnName="id")
+     * })
+     */
+    private $ideleve;
+
+
+}
+
