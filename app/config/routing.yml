@@ -1,3 +1,15 @@
+profil:
+    resource: "@ProfilBundle/Resources/config/routing.yml"
+    prefix:   /
+
+sanc_abs:
+    resource: "@SancAbsBundle/Resources/config/routing.yml"
+    prefix:   /
+
+event:
+    resource: "@EventBundle/Resources/config/routing.yml"
+    prefix:   /
+
 almni:
     resource: "@AlmniBundle/Resources/config/routing.yml"
     prefix:   /
@@ -5,6 +17,56 @@ almni:
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
-
+chat:
+    resource: "@ChatBundle/Resources/config/routing.yml"
+    prefix:   /
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+reclamation:
+    resource: "@ReclamationBundle/Resources/config/routing.yml"
+    prefix:   /
+
+club:
+    resource: "@ClubBundle/Resources/config/routing.yml"
+    prefix:   /
+emploi:
+    resource: "@EmploiBundle/Resources/config/routing.yml"
+    prefix:   /emploi/
+classes:
+    resource: "@ClassesBundle/Resources/config/routing.yml"
+    prefix:   /
+
+classroom:
+    resource: "@ClassroomBundle/Resources/config/routing.yml"
+    prefix:   /
+
+_liip_imagine:
+    resource:
+        "@LiipImagineBundle/Resources/config/routing.xml"
+
+notes:
+    resource: "@NotesBundle/Resources/config/routing.yml"
+    prefix:   /adminpanel/
+
+account:
+    path:     /account
+    defaults: { _controller: NotesBundle:Default:account }
+
+
+almni_api:
+    path:   /api/note/{id}
+    defaults: { _controller: NotesBundle:Default:api }
+
+almni_m_api:
+    path:   /api/matiere/{id}
+    defaults: { _controller: NotesBundle:Default:apim }
+
+
+almni_n_api:
+    path:   /api/add
+    defaults: { _controller: NotesBundle:Default:apinew }
+
+
+
+

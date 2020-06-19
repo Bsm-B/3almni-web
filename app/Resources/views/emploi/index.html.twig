@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Emplois list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Url</th>
+                <th>Class</th>
+                <th>Date</th>
+                <th>Salle</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for emploi in emplois %}
+            <tr>
+                <td><a href="{{ path('emploi_show', { 'id': emploi.id }) }}">{{ emploi.id }}</a></td>
+                <td>{{ emploi.url }}</td>
+                <td>{{ emploi.class }}</td>
+                <td>{% if emploi.date %}{{ emploi.date|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ emploi.salle }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('emploi_show', { 'id': emploi.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('emploi_edit', { 'id': emploi.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('emploi_new') }}">Create a new emploi</a>
+        </li>
+    </ul>
+{% endblock %}

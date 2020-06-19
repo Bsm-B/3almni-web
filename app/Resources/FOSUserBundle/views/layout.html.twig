@@ -1,0 +1,95 @@
+
+{%  extends '@Almni/Front/base.html.twig' %}
+{% block javascripts %}
+
+    {{ parent() }}
+    <style id="themesflat-style-inline-css" type="text/css">
+        .parallax2 { position: relative; background: url(http://corpthemes.com/wordpress/bookflare/wp-content/themes/bookflare/images/feature/bg-feature-2.png) center center no-repeat;background-size: cover;}
+        .parallax-img{background:url(http://corpthemes.com/wordpress/bookflare/wp-content/uploads/2019/03/paul-schafer-787418-unsplash.jpg) center center no-repeat;background-size: cover;}
+    </style>
+{% endblock %}
+{% block body %}
+    <section class="flat-title-page parallax parallax-img  style_page_title_1">
+        <div class="overlay"></div>
+
+        <div class="container wrap-title-page flat-text-left">
+            <div class="title-page">
+                <h2 class="title font-weight-700" style="color:white">My Account</h2>        </div><!-- /.title-page -->
+            <div class="breadcrumbs style2">
+
+                <div class="breadcrumb-trail breadcrumbs">
+                    <span class="trail-browse"></span> <span class="trail-begin"><a href="http://corpthemes.com/wordpress/bookflare" title="Book Flare" rel="home" style="color:white">Home</a></span>
+                    <span class="sep"><i class="fa fa-angle-double-right" aria-hidden="true"></i></span> <span class="trail-end" style="color:white">My Account</span>
+                </div>
+            </div><!-- /.breadcrumbs -->
+
+        </div><!-- /.container -->
+    </section><!-- /.page-title -->     <div id="content" class="page-wrap fullwidth ">
+    <section >
+    <br>
+    <br>
+    <br>
+    <br>
+    </section> <!-- /.flat-feature -->
+    <div class="container content-wrapper ">
+    <div class="row flat_pro">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+    <main id="main" class="post-wrap">
+    <div class="vc_row wpb_row vc_row-fluid themesflat_1591215757"><div class="row_overlay" style=""></div><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper">
+    <div id="flat-form-login">
+    <div class="flat-login-container">
+    <div class="flat-login form-submit-login">
+
+
+
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                <a href="{{ path('fos_user_security_logout') }}">
+                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                </a>
+            {% else %}
+                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+            {% endif %}
+
+
+
+
+
+    {% if app.request.hasPreviousSession %}
+            {% for type, messages in app.session.flashbag.all() %}
+                {% for message in messages %}
+                    <div class="flash-{{ type }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+
+        <div>
+
+            {% block fos_user_content %}
+
+
+            {% endblock fos_user_content %}
+
+        </div>
+
+    </div>
+    </div>
+    </div>
+                </div></div></div></div>
+
+    </main><!-- #main -->
+    </div><!-- #col-12 -->
+
+    </div><!-- /.row -->
+    </div><!-- /.container -->
+</div><!-- #content -->
+    <section >
+        <br>
+        <br>
+        <br>
+        <br>
+
+    </section> <!-- /.flat-feature -->
+{% endblock %}

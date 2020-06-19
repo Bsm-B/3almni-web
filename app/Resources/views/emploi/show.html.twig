@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Emploi</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ emploi.id }}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{ emploi.url }}</td>
+            </tr>
+            <tr>
+                <th>Class</th>
+                <td>{{ emploi.class }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{% if emploi.date %}{{ emploi.date|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Salle</th>
+                <td>{{ emploi.salle }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('emploi_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('emploi_edit', { 'id': emploi.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

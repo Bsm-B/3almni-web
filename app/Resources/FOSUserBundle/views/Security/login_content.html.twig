@@ -1,0 +1,33 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+<h2 class="title cs-title-form wp-caption-text" style="text-align: center;">Login</h2>
+<form action="{{ path("fos_user_security_check") }}" method="post">
+    {% if csrf_token %}
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+    {% endif %}
+
+    <label for="username">{{ 'security.login.username'|trans }}</label>
+    <p class="login-username">
+    <input type="text" id="username" name="_username" value="{{ last_username }}"  placeholder="Username or email" required="required" autocomplete="username" class="input required" size="20" />
+    </p>
+
+    <label for="password">{{ 'security.login.password'|trans }}</label>
+    <p class="login-password">
+    <input type="password" id="password" name="_password" required="required" placeholder="Password" autocomplete="current-password" class="input required" size="20" />
+    </p>
+    <a class="lost-pass-link" href="" title="Lost Password">Lost your password?</a>
+
+    <p class="forgetmenot login-remember">
+
+    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+
+
+    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label></p>
+    <p class="submit login-submit">
+        <button type="submit" name="wp-submit" id="submit" class="flat-button btn-send">Login</button>
+    <input type="hidden" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" class="flat-button btn-send"/>
+    </p>
+</form>

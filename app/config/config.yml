@@ -3,12 +3,18 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: "@AlmniBundle/Resources/config/services.yml" }
+    - { resource: "@EventBundle/Resources/config/services.yml" }
+    - { resource: "@SancAbsBundle/Resources/config/services.yml" }
+    - { resource: "@ProfilBundle/Resources/config/services.yml" }
+    - { resource: "@ClubBundle/Resources/config/services.yml" }
+    - { resource: "@ReclamationBundle/Resources/config/services.yml" }
+
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
-
+    photos_directory: '%kernel.root_dir%/../web'
 framework:
 
     templating:
@@ -64,11 +70,16 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: '%mailer_transport%'
-    host: '%mailer_host%'
-    username: '%mailer_user%'
-    password: '%mailer_password%'
+    transport: 'gmail'
+    host: 'smtp.gmail.com'
+    username: 'amel.khelifa@esprit.tn'
+    password: 'ElpIDa123456789'
     spool: { type: memory }
+    stream_options:
+        ssl:
+            allow_self_signed: true
+            verify_peer: false
+
 
 sensio_framework_extra:
    router:
@@ -81,3 +92,108 @@ fos_user:
     from_email:
         address: "contact@olympains.ovh"
         sender_name: "Contact"
+
+knp_paginator:
+    page_range: 5                       # number of links showed in the pagination menu (e.g: you have 10 pages, a page_range of 3, on the 5th page you'll see links to page 4, 5, 6)
+    default_options:
+        page_name: page                 # page query parameter name
+        sort_field_name: sort           # sort field query parameter name
+        sort_direction_name: direction  # sort direction query parameter name
+        distinct: true                  # ensure distinct results, useful when ORM queries are using GROUP BY statements
+        filter_field_name: filterField  # filter field query parameter name
+        filter_value_name: filterValue  # filter value query parameter name
+    template:
+        pagination: '@KnpPaginator/Pagination/twitter_bootstrap_v3_pagination.html.twig'
+        sortable: '@KnpPaginator/Pagination/sortable_link.html.twig' # sort link template
+        filtration: '@KnpPaginator/Pagination/filtration.html.twig'  # filters template
+gregwar_captcha:
+    width: 100
+    height: 50
+
+cmen_google_charts:
+    version: "current"
+
+liip_imagine:
+    resolvers:
+        default:
+            web_path: ~
+
+    filter_sets:
+        cache: ~
+
+        # the name of the "filter set"
+        test:
+
+            quality: 85
+
+            filters:
+
+                thumbnail: { size: [635, 422], mode: outbound }
+                crop: { size: [635, 422], mode: outbound }
+        testt:
+
+            quality: 85
+
+            filters:
+
+                thumbnail: { size: [890, 593], mode: outbound }
+                crop: { size: [890, 593], mode: outbound }
+
+nomaya_social:
+    buttons:
+        facebook:
+            url:            null
+            locale:         "fr_FR"
+            send:           false
+            width:          300
+            showFaces:      false
+            layout:         "button_count"
+        twitter:
+            url:            null
+            locale:         "fr"
+            message:        "Je veux partager ça avec vous"
+            text:           "Tweet"
+            via:            "L'Equipe cartedevisitevirtuelle.fr"
+            tag:            "ttot"
+        googleplus:
+            url:            null
+            locale :        "fr"
+            size :          "medium"
+            annotation :    "bubble"
+            width :         300
+        linkedin:
+            url:            null
+            locale:         "fr_FR"
+            counter:        "right"
+        pinterest:
+            url:            null
+    links:
+        facebook:           "http://www.facebook.com/yann.chauvel"
+        googleplus:         "https://plus.google.com/105931415830389032796"
+    theme:                  'default' # optional
+
+
+
+gos_web_socket:
+    shared_config: true
+    server:
+        port: 5555                #The port the socket server will listen on
+        host: 127.0.0.1           #The host ip to bind to
+        router:
+            resources:
+                - "@ChatBundle/Resources/config/routing/chat.yml"
+
+
+assetic:
+    debug:          "%kernel.debug%"
+    use_controller: false
+    bundles:        [ChatBundle]
+    #java: /usr/bin/java
+    filters:
+        cssrewrite: ~
+        #closure:
+
+
+
+
+
